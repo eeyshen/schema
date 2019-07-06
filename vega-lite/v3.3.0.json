@@ -1,6 +1,6 @@
 {
-  "$ref": "#/definitions/TopLevelSpec",
-  "$schema": "http://json-schema.org/draft-06/schema#",
+  "type": "object",
+  "title": "图表参数",
   "definitions": {
     "Aggregate": {
       "anyOf": [
