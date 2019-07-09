@@ -2,7 +2,7 @@
   "definitions": {},
   "type": "object",
   "title": "基本参数",
-  "required": ["x", "y", "width", "height"],
+  "required": ["data", "name", "x", "y", "width", "height"],
   "properties": {
     "id": {
       "$id": "#/properties/id",
@@ -11,6 +11,20 @@
       "default": 0,
       "examples": [0],
       "readOnly": true
+    },
+    "data": {
+      "$id": "#/properties/data",
+      "type": "string",
+      "title": "数据",
+      "default": "data",
+      "examples": ["data"]
+    },
+    "name": {
+      "$id": "#/properties/name",
+      "type": "string",
+      "title": "名称",
+      "default": "name",
+      "examples": ["name"]
     },
     "x": {
       "$id": "#/properties/x",
