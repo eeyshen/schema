@@ -2,57 +2,88 @@
   "definitions": {},
   "type": "object",
   "title": "基本参数",
-  "required": ["data", "name", "x", "y", "width", "height"],
+  "required": ["id", "data", "name", "boardRec", "chartRec"],
   "properties": {
     "id": {
       "$id": "#/properties/id",
       "type": "integer",
-      "title": "ID",
+      "title": "The Id Schema",
       "default": 0,
-      "examples": [0],
-      "readOnly": true
+      "examples": [0]
     },
     "data": {
       "$id": "#/properties/data",
       "type": "string",
-      "title": "数据",
+      "title": "The Data Schema",
       "default": "data",
-      "examples": ["data"]
+      "examples": ["data"],
+      "pattern": "^(.*)$"
     },
     "name": {
       "$id": "#/properties/name",
       "type": "string",
-      "title": "名称",
+      "title": "The Name Schema",
       "default": "name",
-      "examples": ["name"]
+      "examples": ["name"],
+      "pattern": "^(.*)$"
     },
-    "x": {
-      "$id": "#/properties/x",
-      "type": "integer",
-      "title": "横向位置",
-      "default": 0,
-      "examples": [0]
+    "boardRec": {
+      "$id": "#/properties/boardRec",
+      "type": "object",
+      "title": "The Boardrec Schema",
+      "required": ["width", "height"],
+      "properties": {
+        "width": {
+          "$id": "#/properties/boardRec/properties/width",
+          "type": "integer",
+          "title": "The Width Schema",
+          "default": 0,
+          "examples": [500]
+        },
+        "height": {
+          "$id": "#/properties/boardRec/properties/height",
+          "type": "integer",
+          "title": "The Height Schema",
+          "default": 0,
+          "examples": [500]
+        }
+      }
     },
-    "y": {
-      "$id": "#/properties/y",
-      "type": "integer",
-      "title": "纵向位置",
-      "default": 0,
-      "examples": [0]
-    },
-    "width": {
-      "$id": "#/properties/width",
-      "type": "integer",
-      "title": "图表宽度",
-      "default": 0,
-      "examples": [200]
-    },
-    "height": {
-      "$id": "#/properties/height",
-      "type": "integer",
-      "title": "图表高度",
-      "default": 0,
-      "examples": [200]
+    "chartRec": {
+      "$id": "#/properties/chartRec",
+      "type": "object",
+      "title": "The Chartrec Schema",
+      "required": ["x", "y", "width", "height"],
+      "properties": {
+        "x": {
+          "$id": "#/properties/chartRec/properties/x",
+          "type": "integer",
+          "title": "The X Schema",
+          "default": 1,
+          "examples": [1]
+        },
+        "y": {
+          "$id": "#/properties/chartRec/properties/y",
+          "type": "integer",
+          "title": "The Y Schema",
+          "default": 1,
+          "examples": [1]
+        },
+        "width": {
+          "$id": "#/properties/chartRec/properties/width",
+          "type": "integer",
+          "title": "The Width Schema",
+          "default": 200,
+          "examples": [200]
+        },
+        "height": {
+          "$id": "#/properties/chartRec/properties/height",
+          "type": "integer",
+          "title": "The Height Schema",
+          "default": 200,
+          "examples": [200]
+        }
+      }
     }
   }
 }
