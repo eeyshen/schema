@@ -2,88 +2,124 @@
   "definitions": {},
   "type": "object",
   "title": "基本参数",
-  "required": ["id", "data", "name", "boardRec", "chartRec"],
+  "required": ["id", "data", "name", "pageSize", "chartPosition", "chartSize"],
   "properties": {
     "id": {
-      "$id": "#/properties/id",
       "type": "integer",
-      "title": "The Id Schema",
       "default": 0,
       "examples": [0]
     },
     "data": {
-      "$id": "#/properties/data",
       "type": "string",
-      "title": "The Data Schema",
       "default": "data",
       "examples": ["data"],
       "pattern": "^(.*)$"
     },
     "name": {
-      "$id": "#/properties/name",
       "type": "string",
-      "title": "The Name Schema",
       "default": "name",
       "examples": ["name"],
       "pattern": "^(.*)$"
     },
-    "boardRec": {
-      "$id": "#/properties/boardRec",
+    "pageSize": {
       "type": "object",
-      "title": "The Boardrec Schema",
       "required": ["width", "height"],
       "properties": {
         "width": {
-          "$id": "#/properties/boardRec/properties/width",
           "type": "integer",
-          "title": "The Width Schema",
           "default": 0,
           "examples": [500]
         },
         "height": {
-          "$id": "#/properties/boardRec/properties/height",
           "type": "integer",
-          "title": "The Height Schema",
           "default": 0,
           "examples": [500]
         }
       }
     },
-    "chartRec": {
-      "$id": "#/properties/chartRec",
+    "chartPosition": {
       "type": "object",
-      "title": "The Chartrec Schema",
-      "required": ["x", "y", "width", "height"],
+      "required": ["x", "y"],
       "properties": {
         "x": {
-          "$id": "#/properties/chartRec/properties/x",
           "type": "integer",
-          "title": "The X Schema",
           "default": 1,
           "examples": [1]
         },
         "y": {
-          "$id": "#/properties/chartRec/properties/y",
           "type": "integer",
-          "title": "The Y Schema",
           "default": 1,
           "examples": [1]
-        },
+        }
+      }
+    },
+    "chartSize": {
+      "type": "object",
+      "required": ["width", "height"],
+      "properties": {
         "width": {
-          "$id": "#/properties/chartRec/properties/width",
           "type": "integer",
-          "title": "The Width Schema",
           "default": 200,
           "examples": [200]
         },
         "height": {
-          "$id": "#/properties/chartRec/properties/height",
           "type": "integer",
-          "title": "The Height Schema",
           "default": 200,
           "examples": [200]
         }
       }
+    },
+    "refresh": {
+      "$ref": "#/properties/AnyRefresh"
+    },
+    "AnyRefresh": {
+      "anyOf": [
+        {
+          "$ref": "#/properties/Refresh"
+        },
+        {
+          "$ref": "#/properties/AtRefresh"
+        },
+        {
+          "$ref": "#/properties/EveryRefresh"
+        }
+      ]
+    },
+    "Refresh": {
+      "type": "string",
+      "enum": ["no", "auto"]
+    },
+    "AtRefresh": {
+      "required": ["timeUnit", "at"],
+      "at": {
+        "type": "string"
+      },
+      "timeUnit": {
+        "$ref": "#/properties/TimeUnit"
+      }
+    },
+    "EveryRefresh": {
+      "required": ["timeUnit", "every"],
+      "every": {
+        "type": "number"
+      },
+      "timeUnit": {
+        "$ref": "#/properties/TimeUnit"
+      }
+    },
+    "TimeUnit": {
+      "enum": [
+        "year",
+        "quarter",
+        "month",
+        "day",
+        "date",
+        "hours",
+        "minutes",
+        "seconds",
+        "milliseconds"
+      ],
+      "type": "string"
     }
   }
 }
