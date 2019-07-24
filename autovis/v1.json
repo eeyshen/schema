@@ -113,11 +113,11 @@
         "quarter",
         "month",
         "week",
-        "date",
-        "hours",
-        "minutes",
-        "seconds",
-        "milliseconds"
+        "day",
+        "hour",
+        "minute",
+        "second",
+        "millisecond"
       ],
       "type": "string"
     }
