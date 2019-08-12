@@ -10,10 +10,13 @@
       "examples": [0]
     },
     "data": {
-      "type": "string",
-      "default": "data",
-      "examples": ["data"],
-      "pattern": "^(.*)$"
+      "type": "object",
+      "default": { "value": "data_name" },
+      "examples": [
+        {
+          "value": "data_name"
+        }
+      ]
     },
     "name": {
       "type": "string",
