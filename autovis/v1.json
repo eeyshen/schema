@@ -123,6 +123,19 @@
         "millisecond"
       ],
       "type": "string"
+    },
+    "theme": {
+      "enum": [
+        "default",
+        "excel",
+        "ggplot2",
+        "quartz",
+        "vox",
+        "dark",
+        "fivethirtyeight",
+        "latimes"
+      ],
+      "type": "string"
     }
   }
 }
