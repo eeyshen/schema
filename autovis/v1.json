@@ -9,15 +9,7 @@
       "default": 0,
       "examples": [0]
     },
-    "data": {
-      "type": "object",
-      "default": { "value": "data_name" },
-      "examples": [
-        {
-          "value": "data_name"
-        }
-      ]
-    },
+    "data": {},
     "name": {
       "type": "string",
       "default": "name",
