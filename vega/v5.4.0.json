@@ -1,6 +1,5 @@
 {
   "type": "object",
-  "title": "高级图表参数",
   "defs": {
     "autosize": {
       "oneOf": [

@@ -1,6 +1,5 @@
 {
   "type": "object",
-  "title": "基本图表参数",
   "definitions": {
     "Aggregate": {
       "anyOf": [

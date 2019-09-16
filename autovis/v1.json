@@ -1,7 +1,6 @@
 {
   "definitions": {},
   "type": "object",
-  "title": "基本参数",
   "required": ["data", "name", "pageSize", "chartPosition", "chartSize"],
   "properties": {
     "id": {
