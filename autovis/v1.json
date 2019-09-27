@@ -1,81 +1,17 @@
 {
-  "definitions": {},
-  "type": "object",
-  "required": ["data", "name", "pageSize", "chartPosition", "chartSize"],
-  "properties": {
-    "id": {
-      "type": "integer",
-      "default": 0,
-      "examples": [0]
-    },
-    "data": {},
-    "name": {
-      "type": "string",
-      "default": "name",
-      "examples": ["name"],
-      "pattern": "^(.*)$"
-    },
-    "pageSize": {
-      "type": "object",
-      "required": ["width", "height"],
-      "properties": {
-        "width": {
-          "type": "integer",
-          "default": 0,
-          "examples": [500]
-        },
-        "height": {
-          "type": "integer",
-          "default": 0,
-          "examples": [500]
-        }
-      }
-    },
-    "chartPosition": {
-      "type": "object",
-      "required": ["x", "y"],
-      "properties": {
-        "x": {
-          "type": "integer",
-          "default": 1,
-          "examples": [1]
-        },
-        "y": {
-          "type": "integer",
-          "default": 1,
-          "examples": [1]
-        }
-      }
-    },
-    "chartSize": {
-      "type": "object",
-      "required": ["width", "height"],
-      "properties": {
-        "width": {
-          "type": "integer",
-          "default": 200,
-          "examples": [200]
-        },
-        "height": {
-          "type": "integer",
-          "default": 200,
-          "examples": [200]
-        }
-      }
-    },
-    "refresh": {
-      "$ref": "#/properties/AnyRefresh"
-    },
+  "$ref": "#/definitions/TopLevelSpec",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
     "AnyRefresh": {
       "anyOf": [
         {
-          "$ref": "#/properties/Refresh"
+          "$ref": "#/definitions/Refresh"
         },
         {
-          "$ref": "#/properties/AtRefresh"
+          "$ref": "#/definitions/AtRefresh"
         },
         {
-          "$ref": "#/properties/EveryRefresh"
+          "$ref": "#/definitions/EveryRefresh"
         }
       ]
     },
@@ -89,7 +25,7 @@
         "type": "string"
       },
       "timeUnit": {
-        "$ref": "#/properties/TimeUnit"
+        "$ref": "#/definitions/TimeUnit"
       }
     },
     "EveryRefresh": {
@@ -98,7 +34,7 @@
         "type": "number"
       },
       "timeUnit": {
-        "$ref": "#/properties/TimeUnit"
+        "$ref": "#/definitions/TimeUnit"
       }
     },
     "TimeUnit": {
@@ -115,18 +51,92 @@
       ],
       "type": "string"
     },
-    "theme": {
-      "enum": [
-        "default",
-        "excel",
-        "ggplot2",
-        "quartz",
-        "vox",
-        "dark",
-        "fivethirtyeight",
-        "latimes"
-      ],
-      "type": "string"
+    "TopLevelSpec": {
+      "additionalProperties": false,
+      "required": ["data", "name", "pageSize", "chartPosition", "chartSize"],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "default": 0,
+          "examples": [0]
+        },
+        "author": {
+          "type": "string",
+          "default": "",
+          "examples": [""]
+        },
+        "data": {},
+        "name": {
+          "type": "string",
+          "default": "name",
+          "examples": ["name"],
+          "pattern": "^(.*)$"
+        },
+        "pageSize": {
+          "type": "object",
+          "required": ["width", "height"],
+          "properties": {
+            "width": {
+              "type": "integer",
+              "default": 0,
+              "examples": [500]
+            },
+            "height": {
+              "type": "integer",
+              "default": 0,
+              "examples": [500]
+            }
+          }
+        },
+        "chartPosition": {
+          "type": "object",
+          "required": ["x", "y"],
+          "properties": {
+            "x": {
+              "type": "integer",
+              "default": 1,
+              "examples": [1]
+            },
+            "y": {
+              "type": "integer",
+              "default": 1,
+              "examples": [1]
+            }
+          }
+        },
+        "chartSize": {
+          "type": "object",
+          "required": ["width", "height"],
+          "properties": {
+            "width": {
+              "type": "integer",
+              "default": 200,
+              "examples": [200]
+            },
+            "height": {
+              "type": "integer",
+              "default": 200,
+              "examples": [200]
+            }
+          }
+        },
+        "refresh": {
+          "$ref": "#/definitions/AnyRefresh"
+        },
+        "theme": {
+          "enum": [
+            "default",
+            "excel",
+            "ggplot2",
+            "quartz",
+            "vox",
+            "dark",
+            "fivethirtyeight",
+            "latimes"
+          ],
+          "type": "string"
+        }
+      }
     }
   }
 }
