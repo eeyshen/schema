@@ -72,6 +72,12 @@
           "examples": ["name"],
           "pattern": "^(.*)$"
         },
+        "description": {
+          "type": "string",
+          "default": "note",
+          "examples": ["note"],
+          "pattern": "^(.*)$"
+        },
         "pageSize": {
           "type": "object",
           "required": ["width", "height"],
