@@ -21,20 +21,24 @@
     },
     "AtRefresh": {
       "required": ["timeUnit", "at"],
-      "at": {
-        "type": "string"
-      },
-      "timeUnit": {
-        "$ref": "#/definitions/TimeUnit"
+      "properties": {
+        "at": {
+          "type": "string"
+        },
+        "timeUnit": {
+          "$ref": "#/definitions/TimeUnit"
+        }
       }
     },
     "EveryRefresh": {
       "required": ["timeUnit", "every"],
-      "every": {
-        "type": "number"
-      },
-      "timeUnit": {
-        "$ref": "#/definitions/TimeUnit"
+      "properties": {
+        "every": {
+          "type": "number"
+        },
+        "timeUnit": {
+          "$ref": "#/definitions/TimeUnit"
+        }
       }
     },
     "TimeUnit": {
