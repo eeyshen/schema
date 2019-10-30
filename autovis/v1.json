@@ -130,6 +130,22 @@
             }
           }
         },
+        "margin": {
+          "type": "object",
+          "required": ["x", "y"],
+          "properties": {
+            "x": {
+              "type": "integer",
+              "default": 0,
+              "examples": [0]
+            },
+            "y": {
+              "type": "integer",
+              "default": 0,
+              "examples": [0]
+            }
+          }
+        },
         "refresh": {
           "$ref": "#/definitions/AnyRefresh"
         },
