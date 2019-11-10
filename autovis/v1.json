@@ -22,24 +22,32 @@
     "AtRefresh": {
       "required": ["timeUnit", "at"],
       "properties": {
+        "type": {
+          "$ref": "#/definitions/refreshType"
+        },
         "at": {
           "type": "string"
         },
         "timeUnit": {
           "$ref": "#/definitions/TimeUnit"
         }
-      }
+      },
+      "additionalProperties": false
     },
     "EveryRefresh": {
       "required": ["timeUnit", "every"],
       "properties": {
+        "type": {
+          "$ref": "#/definitions/refreshType"
+        },
         "every": {
           "type": "number"
         },
         "timeUnit": {
           "$ref": "#/definitions/TimeUnit"
         }
-      }
+      },
+      "additionalProperties": false
     },
     "TimeUnit": {
       "enum": [
@@ -53,6 +61,41 @@
         "second",
         "millisecond"
       ],
+      "type": "string"
+    },
+    "dataValue": {
+      "required": ["name", "value"],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "value": {
+          "type": "array"
+        }
+      },
+      "additionalProperties": false
+    },
+    "dataURL": {
+      "required": ["name", "url", "id"],
+      "properties": {
+        "name": { "type": "string" },
+        "url": {
+          "type": "string"
+        },
+        "id": {
+          "type": "number"
+        },
+        "refresh": {
+          "$ref": "#/definitions/AnyRefresh"
+        },
+        "key": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "refreshType": {
+      "enum": ["increase", "difference", "full"],
       "type": "string"
     },
     "TopLevelSpec": {
@@ -69,7 +112,19 @@
           "default": "",
           "examples": [""]
         },
-        "data": {},
+        "data": {
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/dataValue"
+              },
+              {
+                "$ref": "#/definitions/dataURL"
+              }
+            ]
+          },
+          "type": "array"
+        },
         "name": {
           "type": "string",
           "default": "name",
@@ -161,7 +216,8 @@
             "latimes"
           ],
           "type": "string"
-        }
+        },
+        "additionalProperties": false
       }
     }
   }
