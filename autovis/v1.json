@@ -30,6 +30,9 @@
         },
         "timeUnit": {
           "$ref": "#/definitions/TimeUnit"
+        },
+        "key": {
+          "type": "string"
         }
       },
       "additionalProperties": false
@@ -45,6 +48,9 @@
         },
         "timeUnit": {
           "$ref": "#/definitions/TimeUnit"
+        },
+        "key": {
+          "type": "string"
         }
       },
       "additionalProperties": false
@@ -64,12 +70,12 @@
       "type": "string"
     },
     "dataValue": {
-      "required": ["name", "value"],
+      "required": ["name", "values"],
       "properties": {
         "name": {
           "type": "string"
         },
-        "value": {
+        "values": {
           "type": "array"
         }
       },
@@ -87,9 +93,6 @@
         },
         "refresh": {
           "$ref": "#/definitions/AnyRefresh"
-        },
-        "key": {
-          "type": "string"
         }
       },
       "additionalProperties": false
