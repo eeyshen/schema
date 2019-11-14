@@ -98,7 +98,7 @@
       "additionalProperties": false
     },
     "refreshType": {
-      "enum": ["increase", "difference", "full"],
+      "enum": ["increase", "difference", "full", "no"],
       "type": "string"
     },
     "TopLevelSpec": {
