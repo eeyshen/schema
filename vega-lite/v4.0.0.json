@@ -7745,6 +7745,7 @@
       "type": "object"
     },
     "HexColor": {
+      "format": "color-hex",
       "type": "string"
     },
     "ImputeMethod": {
