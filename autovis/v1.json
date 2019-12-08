@@ -179,9 +179,10 @@
             "ggplot2",
             "quartz",
             "vox",
-            "dark",
             "fivethirtyeight",
-            "latimes"
+            "dark",
+            "latimes",
+            "urbaninstitute"
           ],
           "type": "string"
         },
